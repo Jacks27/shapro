@@ -1,1 +1,25 @@
-<p>login works</p>
+<section>
+  <div class="col-sm-12 col-lg-4 card mx-auto">
+    <div class="card-header" style="font-family: 'IBM Plex Sans', sans-serif;">
+      <h1 class="text-center">Login</h1>
+    </div>
+    <div class="card-body">
+    <form [formGroup]="lgform">
+      <label for="email"><span class="text-danger">*</span>Email</label>
+      <input [class.is-invalid]="email?.invalid && email?.touched" formControlName="email" class="form-control" type="email" name="email" id="email">
+      <div  *ngIf="email?.invalid && email?.touched">
+      <small *ngIf="email?.errors?.['required']" class="text-danger">Email is required.</small>
+      <small *ngIf="email?.errors?.['email']" class="text-danger">Must be an email.</small>
+
+    </div>
+      <label for="password"><span class="text-danger">*</span>Password</label>
+      <input [class.is-invalid]="password?.touched && password?.invalid" formControlName="password" class="form-control" type="password" name="password" id="password">
+      <div *ngIf="password?.touched && password?.invalid">
+        <small *ngIf="password?.errors?.['required']" class="text-danger">Password is required </small>
+      </div>
+      <input type="submit" value="submit" class="btn btn-info">
+
+    </form>
+  </div>
+  </div>
+</section>
